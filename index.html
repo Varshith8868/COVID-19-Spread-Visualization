@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 Global Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- D3.js Library -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- TopoJSON for map -->
+    <script src="https://unpkg.com/topojson@3"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🦠 COVID-19 Global Dashboard</h1>
+            <p class="subtitle">Real-time COVID-19 Statistics Worldwide</p>
+        </header>
+
+        <!-- Global Stats Cards -->
+        <section class="stats-grid">
+            <div class="stat-card confirmed">
+                <h3>Total Confirmed</h3>
+                <p class="stat-number" id="total-cases">Loading...</p>
+                <p class="stat-label">Cases Worldwide</p>
+            </div>
+            <div class="stat-card deaths">
+                <h3>Total Deaths</h3>
+                <p class="stat-number" id="total-deaths">Loading...</p>
+                <p class="stat-label">Deaths Worldwide</p>
+            </div>
+            <div class="stat-card recovered">
+                <h3>Total Recovered</h3>
+                <p class="stat-number" id="total-recovered">Loading...</p>
+                <p class="stat-label">Recovered Worldwide</p>
+            </div>
+            <div class="stat-card active">
+                <h3>Active Cases</h3>
+                <p class="stat-number" id="total-active">Loading...</p>
+                <p class="stat-label">Currently Active</p>
+            </div>
+        </section>
+
+        <!-- World Map -->
+        <section class="map-section">
+            <h2>Global COVID-19 Heat Map</h2>
+            <div id="world-map"></div>
+            <div id="tooltip" class="tooltip"></div>
+        </section>
+
+        <!-- Top Countries Table -->
+        <section class="countries-section">
+            <h2>Top 10 Most Affected Countries</h2>
+            <div class="table-container">
+                <table id="countries-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Country</th>
+                            <th>Total Cases</th>
+                            <th>Deaths</th>
+                            <th>Recovered</th>
+                            <th>Active</th>
+                        </tr>
+                    </thead>
+                    <tbody id="countries-tbody">
+                        <tr><td colspan="6">Loading data...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Charts Section -->
+        <section class="charts-section">
+            <div class="chart-container">
+                <h2>Top 10 Countries by Cases</h2>
+                <div id="bar-chart"></div>
+            </div>
+            <div class="chart-container">
+                <h2>Global Status Distribution</h2>
+                <div id="pie-chart"></div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Data Source: <a href="https://disease.sh" target="_blank">disease.sh API</a></p>
+            <p>Last Updated: <span id="last-updated">Loading...</span></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
